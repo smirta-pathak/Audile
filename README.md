@@ -1,41 +1,41 @@
-# Audile — Music Recognition App
+# Audile, Music Recognition App
 
-Audile is a fully open-source Android application that identifies music playing around you in real time. Point your phone at any audio source, tap recognize, and within seconds you'll have the full track details — artist, album, release year, artwork, lyrics, and direct links to stream it on your preferred platform.
+Audile is a fully open-source Android application that identifies music playing around you in real time. Point your phone at any audio source, tap recognize, and within seconds you'll have the full track details from artist to album, release year, artwork, lyrics, and direct links to stream it on your preferred platform.
 
-The app is built entirely with modern Android development practices — Jetpack Compose, clean architecture, and a multi-module Gradle setup — making it a strong reference for production-quality Android development.
+The app is built entirely with modern Android development practices like Jetpack Compose, clean architecture, and a multi-module Gradle setup  making it a strong reference for production-quality Android development.
 
 ---
 
 ## Features
 
-### 🎵 Music Recognition
-Audile supports three recognition backends — [AudD](https://audd.io/), [ACRCloud](https://www.acrcloud.com/), and [Shazam](https://www.shazam.com/company/) — giving you flexibility and redundancy. If there is no internet connection at the time of recognition, the app saves the audio recording and automatically retries when connectivity is restored.
+### Music Recognition
+Audile supports three recognition backends: [AudD](https://audd.io/), [ACRCloud](https://www.acrcloud.com/), and [Shazam](https://www.shazam.com/company/), giving you flexibility and redundancy. If there is no internet connection at the time of recognition, the app saves the audio recording and automatically retries when connectivity is restored.
 
-### 📚 Track Library
+### Track Library
 Every recognized track is saved to your personal library. You can filter by date, sort by artist or title, mark tracks as favorites, and search across your entire history. Tracks can be deleted individually or in bulk.
 
-### 🎤 Lyrics
+### Lyrics
 Full lyrics are fetched and displayed for recognized tracks. Synced (time-stamped) lyrics are supported where available, so you can follow along in real time.
 
-### 🔗 Streaming Links
+### Streaming Links
 Using [Odesli](https://odesli.co/), Audile automatically retrieves links to the recognized track across all major music platforms including Spotify, Apple Music, YouTube Music, Deezer, and more.
 
-### 🖼️ Share as Story Card
-Share any recognized track as a beautifully designed story card — perfect for Instagram, WhatsApp, or any social platform. The card is generated directly on-device and includes the track artwork, title, and artist.
+### Share as Story Card
+Share any recognized track as a beautifully designed story card that is perfect for Instagram, WhatsApp, or any social platform. The card is generated directly on-device and includes the track artwork, title, and artist.
 
-### 📊 Personal Stats
+### Personal Stats
 A dedicated stats screen gives you an overview of your recognition history. See your most recognized artists, discover patterns in when and how often you use the app, and get a snapshot of your overall music taste.
 
-### 🎟️ Concert Finder
+### Concert Finder
 Discover upcoming live concerts for any recognized artist. Powered by the [Ticketmaster API](https://developer.ticketmaster.com/), the Concert Finder shows you event names, dates, venues, and cities. Tap any result to open the official ticket purchase page directly in your browser.
 
-### 🔔 Background Usage
-Audile works seamlessly in the background. Trigger recognition from the notification drawer, a home screen widget, or a quick settings tile — without ever opening the app.
+### Background Usage
+Audile works seamlessly in the background. Trigger recognition from the notification drawer, a home screen widget, or a quick settings tile  without ever opening the app.
 
-### 🌗 Light & Dark Theme
+### Light & Dark Theme
 Audile supports both light and dark themes with a rich, vibrant color palette. You can set the theme manually or let it follow your system settings automatically, so the app switches between light and dark based on the time of day or your device's display mode.
 
-### ⚙️ Preferences
+### Preferences
 A comprehensive settings screen lets you configure recognition behavior, choose your preferred backend, set what happens on failed recognitions, toggle dynamic color, control the notification service, and more.
 
 ---
@@ -112,7 +112,7 @@ Each feature module depends only on `core/domain`, keeping business logic comple
 
 <details><summary>AudD</summary><p>
 
-AudD is a paid service that requires an API token. If you don't have one, you can [sign up](https://dashboard.audd.io/) for a 14-day trial token.
+AudD is a paid service that requires an API token. If you don't have one, you can [sign up](https://dashboard.audd.io/) for a 14 day trial token.
 
 You can also use the app without a token, but this will significantly restrict the number of daily recognitions. Please keep in mind that this behavior is not guaranteed by the service and can be restricted at any time.
 
@@ -157,7 +157,7 @@ Community translations are managed through [Weblate](https://hosted.weblate.org/
 
 This project is based on [Audile](https://github.com/aleksey-saenko/MusicRecognizer) by Aleksey Saenko, used with permission.
 
-Additional features — Share as Story Card, Personal Stats Page, and Concert Finder — were designed and developed by Smirta Pathak.
+Additional features like Share as Story Card, Personal Stats Page, and Concert Finder  were designed and developed by Smirta Pathak.
 
 ---
 
