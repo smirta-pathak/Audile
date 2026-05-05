@@ -68,6 +68,10 @@ import com.mrsep.musicrecognizer.feature.track.presentation.lyrics.LyricsScreen.
 import com.mrsep.musicrecognizer.feature.track.presentation.track.TrackScreen
 import com.mrsep.musicrecognizer.feature.track.presentation.track.TrackScreen.navigateToTrackScreen
 import com.mrsep.musicrecognizer.feature.track.presentation.track.TrackScreen.trackScreen
+import com.mrsep.musicrecognizer.feature.library.presentation.stats.StatsScreen
+import com.mrsep.musicrecognizer.feature.library.presentation.stats.StatsScreen.statsScreen
+import com.mrsep.musicrecognizer.feature.concerts.presentation.concertsScreen
+import com.mrsep.musicrecognizer.feature.concerts.presentation.navigateToConcerts
 
 private const val SCREEN_TRANSITION_DURATION = 250
 
@@ -165,7 +169,10 @@ internal fun AppNavigation(
                 onNavigateToLyricsScreen = { trackId, from ->
                     outerNavController.navigateToLyricsScreen(trackId = trackId, from = from)
                 },
-                onRetryRequested = { setRecognitionRequested(true) }
+                onRetryRequested = { setRecognitionRequested(true) },
+                onNavigateToConcerts = { artist ->
+                    outerNavController.navigateToConcerts(artist)
+                }
             )
             lyricsScreen(onBackPressed = outerNavController::navigateUp)
         }
@@ -188,6 +195,7 @@ internal fun AppNavigation(
         appLicenseScreen(onBackPressed = outerNavController::navigateUp)
         backupRestoreScreen(onBackPressed = outerNavController::navigateUp)
         developerScreen(onBackPressed = outerNavController::navigateUp)
+        concertsScreen(onBackPressed = outerNavController::navigateUp)
     }
 }
 
@@ -306,7 +314,13 @@ private fun BarNavHost(
                 },
                 onTrackSearchClick = { from ->
                     outerNavController.navigateToLibrarySearchScreen(from = from)
+                },
+                onStatsClick = { from ->
+                    innerNavController.navigate(StatsScreen.ROUTE)
                 }
+            )
+            statsScreen(
+                onBackPressed = outerNavController::navigateUp
             )
         }
         navigation(

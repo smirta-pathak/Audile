@@ -90,6 +90,7 @@ dependencies {
     implementation(projects.feature.backup)
     implementation(projects.feature.onboarding)
     implementation(projects.feature.developerMode)
+    implementation(projects.feature.concerts)
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)

@@ -1,6 +1,8 @@
 package com.mrsep.musicrecognizer.core.data.di
 
 import com.mrsep.musicrecognizer.core.data.ConnectivityManagerNetworkMonitor
+import com.mrsep.musicrecognizer.core.data.concerts.ConcertRepositoryImpl
+import com.mrsep.musicrecognizer.core.domain.concerts.ConcertRepository
 import com.mrsep.musicrecognizer.core.data.enqueued.EnqueuedRecognitionRepositoryImpl
 import com.mrsep.musicrecognizer.core.data.enqueued.AudioSampleDataSource
 import com.mrsep.musicrecognizer.core.data.enqueued.AudioSampleDataSourceImpl
@@ -41,4 +43,8 @@ internal interface RepositoryModule {
     @Binds
     @Singleton
     fun bindNetworkMonitor(impl: ConnectivityManagerNetworkMonitor): NetworkMonitor
+
+    @Binds
+    @Singleton
+    fun bindConcertRepository(impl: ConcertRepositoryImpl): ConcertRepository
 }

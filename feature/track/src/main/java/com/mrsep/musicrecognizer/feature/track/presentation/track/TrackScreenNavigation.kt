@@ -44,6 +44,7 @@ object TrackScreen {
         isExpandedScreen: Boolean,
         onBackPressed: () -> Unit,
         onNavigateToLyricsScreen: (trackId: String, from: NavBackStackEntry) -> Unit,
+        onNavigateToConcerts: (artist: String) -> Unit,
         onRetryRequested: () -> Unit
     ) {
         composable(
@@ -83,6 +84,7 @@ object TrackScreen {
                 onNavigateToLyricsScreen = { trackId ->
                     onNavigateToLyricsScreen(trackId, backStackEntry)
                 },
+                onNavigateToConcerts = onNavigateToConcerts,
                 onRetryRequested = {
                     backStackEntry.savedStateHandle[KEY_LAST_ACTION] = TrackAction.Dismissed
                     onRetryRequested()

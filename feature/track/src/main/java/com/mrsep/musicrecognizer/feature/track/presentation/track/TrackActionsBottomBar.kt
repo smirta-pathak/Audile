@@ -45,6 +45,8 @@ internal fun TrackActionsBottomBar(
     onLyricsClick: () -> Unit,
     onSearchClick: () -> Unit,
     onRetryRequested: () -> Unit,
+    onShareStoryClick: () -> Unit,
+    onConcertsClick: () -> Unit,
 ) {
     val lyricsButtonAlpha by animateFloatAsState(
         when {
@@ -124,6 +126,18 @@ internal fun TrackActionsBottomBar(
                     } else {
                         stringResource(StringsR.string.mark_track_as_favorite)
                     }
+                )
+            }
+            IconButton(onClick = onShareStoryClick) {
+                Icon(
+                    painter = painterResource(UiR.drawable.outline_share_24),
+                    contentDescription = "Share story card"
+                )
+            }
+            IconButton(onClick = onConcertsClick) {
+                Icon(
+                    painter = painterResource(UiR.drawable.outline_library_music_24),
+                    contentDescription = "Find concerts"
                 )
             }
         }

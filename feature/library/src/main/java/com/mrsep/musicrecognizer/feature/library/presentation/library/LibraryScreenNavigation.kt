@@ -8,17 +8,18 @@ import androidx.navigation.compose.composable
 import com.mrsep.musicrecognizer.core.common.util.lifecycleIsResumed
 
 object LibraryScreen {
-
     const val ROUTE = "library"
 
     fun NavGraphBuilder.libraryScreen(
         onTrackClick: (trackId: String, from: NavBackStackEntry) -> Unit,
-        onTrackSearchClick: (from: NavBackStackEntry) -> Unit
+        onTrackSearchClick: (from: NavBackStackEntry) -> Unit,
+        onStatsClick: (from: NavBackStackEntry) -> Unit,
     ) {
         composable(ROUTE) { backStackEntry ->
             LibraryScreen(
                 onTrackClick = { trackId -> onTrackClick(trackId, backStackEntry) },
-                onTrackSearchClick = { onTrackSearchClick(backStackEntry) }
+                onTrackSearchClick = { onTrackSearchClick(backStackEntry) },
+                onStatsClick = { onStatsClick(backStackEntry) }
             )
         }
     }

@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 
             MusicRecognizerTheme(
                 darkTheme = darkTheme,
-                dynamicColor = shouldUseDynamicColors(uiState),
+                dynamicColor = false,
                 pureBlack = shouldUsePureBlack(uiState)
             ) {
                 // Update enableEdgeToEdge to match user theme mode

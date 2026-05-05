@@ -24,6 +24,7 @@ import kotlinx.coroutines.launch
 internal fun LibraryScreen(
     onTrackClick: (trackId: String) -> Unit,
     onTrackSearchClick: () -> Unit,
+    onStatsClick: () -> Unit,
     viewModel: LibraryViewModel = hiltViewModel()
 ) {
     val scope = rememberCoroutineScope()
@@ -69,7 +70,8 @@ internal fun LibraryScreen(
                 onChangeUseGridLayout = viewModel::setUseGrid,
                 showRecognitionDate = uiState.showRecognitionDate,
                 onChangeShowRecognitionDate = viewModel::setShowRecognitionDate,
-                scrollBehavior = topBarBehaviour
+                scrollBehavior = topBarBehaviour,
+                onStatsClick = onStatsClick
             )
             Box(
                 contentAlignment = Alignment.Center,

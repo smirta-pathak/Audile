@@ -21,6 +21,7 @@ private enum class TopBarMode { EmptyLibrary, Default, MultiSelection }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun LibraryScreenTopBar(
+    onStatsClick: () -> Unit,
     isLibraryEmpty: Boolean,
     isFilterApplied: Boolean,
     isMultiselectEnabled: Boolean,
@@ -112,6 +113,7 @@ internal fun LibraryScreenTopBar(
                             onChangeUseGridLayout = onChangeUseGridLayout,
                             showRecognitionDate = showRecognitionDate,
                             onChangeShowRecognitionDate = onChangeShowRecognitionDate,
+                            onStatsClick = onStatsClick
                         )
                     }
 
@@ -145,6 +147,7 @@ private fun LibraryDropdownMenu(
     onChangeUseGridLayout: (Boolean) -> Unit,
     showRecognitionDate: Boolean,
     onChangeShowRecognitionDate: (Boolean) -> Unit,
+    onStatsClick: () -> Unit,
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
     Box(modifier = modifier) {
@@ -183,6 +186,13 @@ private fun LibraryDropdownMenu(
                             alpha = if (showRecognitionDate) 1f else 0f
                         }
                     )
+                }
+            )
+            DropdownMenuItem(
+                text = { Text(text = "My Stats") },
+                onClick = {
+                    menuExpanded = false
+                    onStatsClick()
                 }
             )
         }

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.musicrecognizer.android.library)
     alias(libs.plugins.musicrecognizer.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {

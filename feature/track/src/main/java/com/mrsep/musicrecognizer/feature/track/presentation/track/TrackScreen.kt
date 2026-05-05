@@ -46,6 +46,7 @@ internal fun TrackScreen(
     isRetryAllowed: Boolean,
     onBackPressed: () -> Unit,
     onNavigateToLyricsScreen: (trackId: String) -> Unit,
+    onNavigateToConcerts: (artist: String) -> Unit,
     onRetryRequested: () -> Unit,
     onTrackDeleted: () -> Unit,
 ) {
@@ -184,6 +185,12 @@ internal fun TrackScreen(
                                         trackDismissed = true
                                         viewModel.deleteTrack(uiState.track.id)
                                         onRetryRequested()
+                                    },
+                                    onShareStoryClick = {
+                                        createAndShareStoryCard(context, uiState.track)
+                                    },
+                                    onConcertsClick = {
+                                        onNavigateToConcerts(uiState.track.artist)
                                     }
                                 )
                                 if (showShareSheet) {

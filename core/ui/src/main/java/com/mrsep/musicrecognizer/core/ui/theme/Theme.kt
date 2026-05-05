@@ -94,7 +94,7 @@ val darkColorScheme = darkColorScheme(
 @Composable
 fun MusicRecognizerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     pureBlack: Boolean = false,
     content: @Composable () -> Unit
 ) {
