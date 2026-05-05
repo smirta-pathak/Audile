@@ -1,91 +1,165 @@
+# Audile — Music Recognition App
 
-# Audile
-Audile is an open-source music recognition application that can help you quickly and accurately identify a music track playing near you.
+Audile is a fully open-source Android application that identifies music playing around you in real time. Point your phone at any audio source, tap recognize, and within seconds you'll have the full track details — artist, album, release year, artwork, lyrics, and direct links to stream it on your preferred platform.
 
-The app integrates [AudD](https://audd.io/), [ACRCloud](https://www.acrcloud.com/), and [Shazam](https://www.shazam.com/company/) for song identification, and uses [Odesli](https://odesli.co/) to retrieve platform-specific track links.
+The app is built entirely with modern Android development practices — Jetpack Compose, clean architecture, and a multi-module Gradle setup — making it a strong reference for production-quality Android development.
 
-[<img src="./img/get-it-on-f-droid.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.mrsep.musicrecognizer/)
-[<img src="./img/get-it-on-github.png" alt="Get it on GitHub" height="80">](https://github.com/aleksey-saenko/MusicRecognizer/releases/)
-
-F-Droid releases cannot be upgraded to other releases as they are compiled and signed by [F-Droid](https://f-droid.org/docs/).
-
-The app runs on Android 8.0 or later.
+---
 
 ## Features
 
-* **Recognition** - Audile allows you to perform song recognition in one click. The app will save the recording if there is no internet, and the recognition process will be executed when you come back online. You can customize the default behavior for unsuccessful recognition (no internet, no matches, another failure) via the preferences.
-* **Background Usage** - Use the application seamlessly from the notification drawer, home screen widget, or quick settings tile. Manage the recognition process and obtain track information without launching the app.
-* **About track** - In case of successful recognition, information about the track, such as the name, artist, album and year, artwork, links to this track on popular music services, lyrics is provided.
-* **Library** - All recognized tracks are stored in the application's library. You can filter the track list, create a favorites collection, search for tracks, or delete tracks.
-* **Share as Story Card** - Share any recognized track as a beautifully designed story card directly from the track screen, perfect for posting on social media.
-* **Personal Stats** - View your recognition history with detailed statistics including most recognized artists, busiest recognition times, and overall listening patterns.
-* **Concert Finder** - Discover upcoming live concerts for any recognized artist powered by the Ticketmaster API. Tap any result to go directly to the ticket purchase page.
-* **Preferences** - The application has a number of options for customizing its behavior and appearance, which can be found on the settings screen.
+### 🎵 Music Recognition
+Audile supports three recognition backends — [AudD](https://audd.io/), [ACRCloud](https://www.acrcloud.com/), and [Shazam](https://www.shazam.com/company/) — giving you flexibility and redundancy. If there is no internet connection at the time of recognition, the app saves the audio recording and automatically retries when connectivity is restored.
+
+### 📚 Track Library
+Every recognized track is saved to your personal library. You can filter by date, sort by artist or title, mark tracks as favorites, and search across your entire history. Tracks can be deleted individually or in bulk.
+
+### 🎤 Lyrics
+Full lyrics are fetched and displayed for recognized tracks. Synced (time-stamped) lyrics are supported where available, so you can follow along in real time.
+
+### 🔗 Streaming Links
+Using [Odesli](https://odesli.co/), Audile automatically retrieves links to the recognized track across all major music platforms including Spotify, Apple Music, YouTube Music, Deezer, and more.
+
+### 🖼️ Share as Story Card
+Share any recognized track as a beautifully designed story card — perfect for Instagram, WhatsApp, or any social platform. The card is generated directly on-device and includes the track artwork, title, and artist.
+
+### 📊 Personal Stats
+A dedicated stats screen gives you an overview of your recognition history. See your most recognized artists, discover patterns in when and how often you use the app, and get a snapshot of your overall music taste.
+
+### 🎟️ Concert Finder
+Discover upcoming live concerts for any recognized artist. Powered by the [Ticketmaster API](https://developer.ticketmaster.com/), the Concert Finder shows you event names, dates, venues, and cities. Tap any result to open the official ticket purchase page directly in your browser.
+
+### 🔔 Background Usage
+Audile works seamlessly in the background. Trigger recognition from the notification drawer, a home screen widget, or a quick settings tile — without ever opening the app.
+
+### 🌗 Light & Dark Theme
+Audile supports both light and dark themes with a rich, vibrant color palette. You can set the theme manually or let it follow your system settings automatically, so the app switches between light and dark based on the time of day or your device's display mode.
+
+### ⚙️ Preferences
+A comprehensive settings screen lets you configure recognition behavior, choose your preferred backend, set what happens on failed recognitions, toggle dynamic color, control the notification service, and more.
+
+---
 
 ## Screenshots
 
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/00.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/00.png "Recognition screen")
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/01.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/01.png "Track screen")
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/02.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/02.png "Library screen")
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/03.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/03.png "Notification service")
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/04.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/04.png "Lyrics screen")
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/05.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/05.png "Library search")
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/06.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/06.png "Queue screen")
-[<img src="./fastlane/metadata/android/en-US/images/phoneScreenshots/07.png" width=200>](./fastlane/metadata/android/en-US/images/phoneScreenshots/07.png "Preferences screen")
+### Light Theme
+
+| Home | Track Details | Lyrics |
+|---|---|---|
+| <img src="./screenshots/01.jpeg" width="200"> | <img src="./screenshots/03.jpeg" width="200"> | <img src="./screenshots/04.jpeg" width="200"> |
+
+| Concert Finder | Library | Web Search |
+|---|---|---|
+| <img src="./screenshots/05.jpeg" width="200"> | <img src="./screenshots/06.jpeg" width="200"> | <img src="./screenshots/08.jpeg" width="200"> |
+
+### Dark Theme
+
+| Home | Track Details | Library |
+|---|---|---|
+| <img src="./screenshots/07.jpeg" width="200"> | <img src="./screenshots/09.jpeg" width="200"> | <img src="./screenshots/11.jpeg" width="200"> |
+
+| Lyrics | Concert Finder | Story Card |
+|---|---|---|
+| <img src="./screenshots/12.jpeg" width="200"> | <img src="./screenshots/10.jpeg" width="200"> | <img src="./screenshots/02.jpeg" width="200"> |
+
+---
 
 ## Tech Stack
 
-- **Language** - Kotlin
-- **UI** - Jetpack Compose with Material 3
-- **Architecture** - MVVM with clean architecture (domain / data / feature modules)
-- **Dependency Injection** - Hilt
-- **Networking** - Ktor with OkHttp engine
-- **Local Storage** - Room database, DataStore
-- **Serialization** - kotlinx.serialization
-- **Image Loading** - Coil
+| Layer | Technology |
+|---|---|
+| Language | Kotlin |
+| UI | Jetpack Compose + Material 3 |
+| Architecture | MVVM + Clean Architecture |
+| Dependency Injection | Hilt |
+| Networking | Ktor + OkHttp |
+| Local Database | Room |
+| Preferences Storage | DataStore (Proto) |
+| Serialization | kotlinx.serialization |
+| Image Loading | Coil |
+| Concerts API | Ticketmaster Discovery API |
+| Music Links | Odesli API |
 
-## API Key
+---
+
+## Architecture
+
+The project follows a strict multi-module clean architecture:
+
+```
+app/                    → App entry point, navigation, DI wiring
+core/
+  domain/               → Business logic, repository interfaces, domain models
+  data/                 → Repository implementations, API clients, mappers
+  database/             → Room database, DAOs, entities
+  datastore/            → Proto DataStore for user preferences
+  network/              → Shared Ktor HTTP client, logging
+  ui/                   → Shared Compose components, theme, colors
+  common/               → Shared utilities, coroutine dispatchers
+feature/
+  recognition/          → Recognition screen and background service
+  track/                → Track detail, lyrics, story card, concert finder button
+  library/              → Library screen, search, stats
+  concerts/             → Concert finder screen and Ticketmaster integration
+  preferences/          → Settings screen
+```
+
+Each feature module depends only on `core/domain`, keeping business logic completely decoupled from the UI layer.
+
+---
+
+## API Keys
 
 <details><summary>AudD</summary><p>
 
 AudD is a paid service that requires an API token. If you don't have one, you can [sign up](https://dashboard.audd.io/) for a 14-day trial token.
 
-You can also use the app without a token, but this will significantly restrict the number of daily recognitions that can be performed. Please keep in mind that this behavior is not guaranteed by the service and can be restricted at any time.
+You can also use the app without a token, but this will significantly restrict the number of daily recognitions. Please keep in mind that this behavior is not guaranteed by the service and can be restricted at any time.
 
 </p></details>
 
 <details><summary>ACRCloud</summary><p>
 
-ACRCloud is a paid service that offers a free trial period and ongoing limited free usage for development. To use this service, you must create an account and register a project. If you encounter any difficulties, please refer to this [guide](https://docs.acrcloud.com/tutorials/recognize-music/).
+ACRCloud offers a free trial period and ongoing limited free usage for development. To use this service, create an account and register a project. Refer to this [guide](https://docs.acrcloud.com/tutorials/recognize-music/) for setup instructions.
 
-Please pay attention to these steps:
-* Select the geographical region closest to you to minimize internet latency.
-* Set the audio source as `Recorded audio`.
-* Set the audio engine of your choice. `Audio fingerprinting` is the most accurate for general use.
-* Check all the boxes for 3rd party ID integration.
+Key steps:
+- Select the geographical region closest to you to minimize latency.
+- Set the audio source as `Recorded audio`.
+- Set the audio engine to `Audio fingerprinting` for best accuracy.
+- Check all boxes for 3rd party ID integration.
 
 </p></details>
 
 <details><summary>Ticketmaster (Concert Finder)</summary><p>
 
-The Concert Finder feature requires a free Ticketmaster API key. You can obtain one by signing up at [developer.ticketmaster.com](https://developer.ticketmaster.com/).
+The Concert Finder feature requires a free Ticketmaster API key. Sign up at [developer.ticketmaster.com](https://developer.ticketmaster.com/) to get one.
 
-Once you have your key, replace the value in `core/data/src/main/java/com/mrsep/musicrecognizer/core/data/concerts/ConcertRepositoryImpl.kt`.
+Once you have your key, replace the value in:
+`core/data/src/main/java/com/mrsep/musicrecognizer/core/data/concerts/ConcertRepositoryImpl.kt`
 
 </p></details>
 
+---
+
+## Building from Source
+
+Please see [BUILDING.md](https://github.com/aleksey-saenko/MusicRecognizer/blob/master/BUILDING.md) for detailed build instructions.
+
+---
+
 ## Translation
 
-[<img src="https://hosted.weblate.org/widget/audile/multi-auto.svg" alt="Translation progress">](https://hosted.weblate.org/engage/audile/)
+Community translations are managed through [Weblate](https://hosted.weblate.org/engage/audile/). Contributions and corrections are welcome.
 
-If you'd like to help translate the app into your language, you can do so through [Weblate](https://hosted.weblate.org/engage/audile/).
-
-Feel free to correct any errors or suggest better translation options for the current translations.
-
+---
 
 ## Attribution
 
-This project is based on [Audile](https://github.com/aleksey-saenko/MusicRecognizer) by Aleksey Saenko. Additional features — Share as Story Card, Personal Stats, and Concert Finder — were developed by Smirta Pathak.
+This project is based on [Audile](https://github.com/aleksey-saenko/MusicRecognizer) by Aleksey Saenko, used with permission.
+
+Additional features — Share as Story Card, Personal Stats Page, and Concert Finder — were designed and developed by Smirta Pathak.
+
+---
 
 ## License
 
@@ -100,9 +174,9 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
